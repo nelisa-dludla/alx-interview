@@ -1,18 +1,25 @@
 #!/usr/bin/python3
 '''
-This function returns a list of lists of integers representing the Pascal’s triangle of n
+This function returns a list of lists of integers
+representing the Pascal’s triangle of n
 '''
+
 
 def pascal_triangle(n):
     '''
     Computes the pascal triangle
+
+    Args:
+        n: number of rows to be computed
+
+    Returns:
+        A list of all the computed rows
     '''
     if n <= 0:
         return []
 
     triangle = []
 
-    # Iterate for the number of n rows
     for loop in range(n):
         if loop == 0:
             new_row = calc_new_row(triangle)
@@ -23,9 +30,16 @@ def pascal_triangle(n):
 
     return triangle
 
+
 def calc_new_row(prev_row):
     '''
-    Computes the values for a new row
+    A helper function that helps compute the values for a new row
+
+    Args:
+        prev_row: The previous row/value in the list
+
+    Returns:
+        A newly computed row
     '''
     if not prev_row:
         return [1]
