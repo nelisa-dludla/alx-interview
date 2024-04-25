@@ -1,10 +1,12 @@
-
+#!/usr/bin/python3
 '''
 This function returns a list of lists of integers representing the Pascal’s triangle of n
 '''
 
 def pascal_triangle(n):
-    '''Computes the pascal triangle'''
+    '''
+    Computes the pascal triangle
+    '''
     if n <= 0:
         return []
 
@@ -22,7 +24,9 @@ def pascal_triangle(n):
     return triangle
 
 def calc_new_row(prev_row):
-    '''Computes the values for a new row'''
+    '''
+    Computes the values for a new row
+    '''
     if not prev_row:
         return [1]
 
