@@ -25,10 +25,10 @@ def process_line(line):
     '''
     Reads and processes stdin lines
     '''
-    global total_size, line_count
+    global total_size
     line_parts = line.split()
 
-    if len(line_parts) < 8:
+    if len(line_parts) < 9:
         return
 
     try:
@@ -63,3 +63,6 @@ try:
 except KeyboardInterrupt:
     print_stats(total_size, status_counts)
     sys.exit(0)
+
+
+print_stats(total_size, status_counts)
