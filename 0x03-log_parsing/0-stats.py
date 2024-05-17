@@ -28,7 +28,7 @@ def process_line(line):
     global total_size, line_count
     line_parts = line.split()
 
-    if len(line_parts) < 9:
+    if len(line_parts) < 8:
         return
 
     try:
