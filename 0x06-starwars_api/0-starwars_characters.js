@@ -1,25 +1,27 @@
 #!/usr/bin/node
 
-const filmId = process.argv[2];
 const request = require('request');
+const filmId = process.argv[2];
 const url = `https://swapi-api.alx-tools.com/api/films/${filmId}/`;
 
-request(url, (error, response, body) => {
+request(url, async (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    const characters = data.characters;
+    const charactersUrl = data.characters;
 
-    characters.forEach(character => {
-      request(character, (error, response, body) => {
-        if (error) {
-          console.log(error);
-        } else {
-          const data = JSON.parse(body);
-          console.log(data.name);
-        }
+    for (const character of charactersUrl) {
+      await new Promise((resolve, reject) => {
+        request(character, (error, response, body) => {
+          if (error) {
+            reject(console.log(error));
+          } else {
+            const data = JSON.parse(body);
+            resolve(console.log(data.name));
+          }
+        });
       });
-    });
+    }
   }
 });
