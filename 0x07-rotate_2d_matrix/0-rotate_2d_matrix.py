@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 '''Contains rotate_2d_matrix(matrix)
 '''
 
@@ -27,4 +27,3 @@ def rotate_2d_matrix(matrix):
         # Move to inner space
         left += 1
         right -= 1
-
