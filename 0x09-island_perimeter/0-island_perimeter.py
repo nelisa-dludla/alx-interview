@@ -10,6 +10,8 @@ def island_perimeter(grid):
     grid_length = len(grid)
 
     def explore_island(row, col):
+        '''Checks if cell is part of the island or sea
+        '''
         if row >= grid_length or col >= grid_length or row < 0 or col < 0 or grid[row][col] == 0:
                 return 1
         if (row, col) in visited:
