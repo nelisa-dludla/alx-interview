@@ -2,6 +2,7 @@
 ''' Solution to interview question prime game
 '''
 
+
 def isWinner(x, nums):
     '''Returns overall winner of prime game
     '''
@@ -23,7 +24,7 @@ def isWinner(x, nums):
         return [x for x in array if x % num != 0]
 
     # Players
-    playerStats = {
+    stats = {
         'Maria': {
                 'overallWins': 0,
                 'roundWins': 0,
@@ -62,12 +63,12 @@ def isWinner(x, nums):
         else:
             winner = 'Ben'
 
-            playerStats[winner]['overallWins'] += 1
+            stats[winner]['overallWins'] += 1
 
     # Determine overall winner
-    if playerStats['Maria']['overallWins'] > playerStats['Ben']['overallWins']:
+    if stats['Maria']['overallWins'] > stats['Ben']['overallWins']:
         return 'Maria'
-    elif playerStats['Ben']['overallWins'] > playerStats['Maria']['overallWins']:
+    elif stats['Ben']['overallWins'] > stats['Maria']['overallWins']:
         return 'Ben'
     else:
         return None
