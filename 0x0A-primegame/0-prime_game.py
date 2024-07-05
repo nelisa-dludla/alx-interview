@@ -3,6 +3,8 @@
 '''
 
 def isWinner(x, nums):
+    '''Returns overall winner of prime game
+    '''
     def isPrime(num):
         '''Return "True" if num is a prime number
         '''
