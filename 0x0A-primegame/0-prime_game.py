@@ -24,31 +24,21 @@ def isWinner(x, nums):
         return [x for x in array if x % num != 0]
 
     # Players
-    stats = {
-        'Maria': {
-                'overallWins': 0,
-                'roundWins': 0,
-                'roundMoves': 0,
-            },
-        'Ben': {
-                'overallWins': 0,
-                'roundWins': 0,
-                'roundMoves': 0,
-           }
+    playerStats = {
+        'Maria': 0,
+        'Ben': 0
     }
 
     # Rounds
     for n in nums:
         current_array = list(range(1, n + 1))
         current_player = 'Maria'
-        moves = 0
 
         while any(isPrime(num) for num in current_array):
             # Find smallest prime number in current_array
             for num in current_array:
                 if isPrime(num):
                     current_array = findMul(num, current_array)
-                    moves += 1
                     break
 
                 # Switch players
@@ -58,17 +48,17 @@ def isWinner(x, nums):
                     current_player = 'Maria'
 
         # Determine winner of the round
-        if moves % 2 == 1:
-            winner = 'Maria'
-        else:
+        if current_player == 'Maria':
             winner = 'Ben'
+        else:
+            winner = 'Maria'
 
-            stats[winner]['overallWins'] += 1
+        playerStats[winner] += 1
 
     # Determine overall winner
-    if stats['Maria']['overallWins'] > stats['Ben']['overallWins']:
+    if playerStats['Maria'] > playerStats['Ben']:
         return 'Maria'
-    elif stats['Ben']['overallWins'] > stats['Maria']['overallWins']:
+    elif playerStats['Ben'] > playerStats['Maria']:
         return 'Ben'
     else:
         return None
